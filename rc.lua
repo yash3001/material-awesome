@@ -81,3 +81,6 @@ _G.client.connect_signal(
     c.border_color = beautiful.border_normal
   end
 )
+
+-- Autostart command for tap to click
+awful.spawn.with_shell('xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1')
