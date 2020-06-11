@@ -61,7 +61,7 @@ The first variable fixes most indicators (especially electron based ones!), the 
 ### 5) *To fix the reverse scroll issue
 You will need to edit `/usr/share/X11/xorg.conf.d/40-libinput.conf`
 
-Proper instructions to fix this issue is available [here](https://askubuntu.com/questions/1122513/how-to-add-natural-inverted-mouse-scrolling-in-i3-window-manager)
+Proper instructions to fix this issue are available [here](https://askubuntu.com/questions/1122513/how-to-add-natural-inverted-mouse-scrolling-in-i3-window-manager)
 
 ### 6) Read the documentation
 The documentation live within the source code.
