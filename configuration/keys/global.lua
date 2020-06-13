@@ -17,39 +17,31 @@ local globalKeys =
   awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
   awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({modkey}, 'Tab', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
-  -- Default client focus
-  awful.key(
-    {modkey},
-    'Right',
-    function()
-      awful.client.focus.byidx(1)
-    end,
-    {description = 'focus next by index', group = 'client'}
-  ),
-  awful.key(
-    {modkey},
-    'Left',
-    function()
-      awful.client.focus.byidx(-1)
-    end,
-    {description = 'focus previous by index', group = 'client'}
-  ),
-  awful.key(
-    {modkey},
-    'Down',
-    function()
-      awful.client.focus.byidx(1)
-    end,
-    {description = 'focus next by index', group = 'client'}
-  ),
-  awful.key(
-    {modkey},
-    'Up',
-    function()
-      awful.client.focus.byidx(-1)
-    end,
-    {description = 'focus previous by index', group = 'client'}
-  ),
+  -- By direction client focus
+    awful.key({ modkey }, "Down",
+        function()
+            awful.client.focus.global_bydirection("down")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus down", group = "client"}),
+    awful.key({ modkey }, "Up",
+        function()
+            awful.client.focus.global_bydirection("up")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus up", group = "client"}),
+    awful.key({ modkey }, "Left",
+        function()
+            awful.client.focus.global_bydirection("left")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus left", group = "client"}),
+    awful.key({ modkey }, "Right",
+        function()
+            awful.client.focus.global_bydirection("right")
+            if client.focus then client.focus:raise() end
+        end,
+        {description = "focus right", group = "client"}),
   awful.key(
     {modkey},
     'r',
@@ -66,6 +58,10 @@ local globalKeys =
     end,
     {description = 'show main menu', group = 'awesome'}
   ),
+  awful.key({altkey, 'Control'}, "Right", function () awful.client.swap.byidx(  1)    end,
+              {description = "swap with next client by index", group = "client"}),
+    awful.key({altkey, 'Control'}, "Left", function () awful.client.swap.byidx( -1)    end,
+              {description = "swap with previous client by index", group = "client"}),
   awful.key({modkey}, 'u', awful.client.urgent.jumpto, {description = 'jump to urgent client', group = 'client'}),
   awful.key(
     {altkey},
