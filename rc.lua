@@ -84,3 +84,8 @@ _G.client.connect_signal(
 
 -- Autostart command for tap to click
 awful.spawn.with_shell('xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1')
+
+-- Enable sloppy focus, so that focus follows mouse.
+client.connect_signal("mouse::enter", function(c)
+    c:emit_signal("request::activate", "mouse_enter", {raise = vi_focus})
+end)
