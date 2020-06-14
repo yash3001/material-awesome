@@ -44,7 +44,7 @@ local globalKeys =
         {description = "focus right", group = "client"}),
   awful.key(
     {modkey},
-    'r',
+    'a',
     function()
       _G.screen.primary.left_panel:toggle(true)
     end,
@@ -145,6 +145,12 @@ local globalKeys =
     end,
     {description = 'Open Brave', group = 'launcher'}
   ),
+  --dmenu
+    awful.key({ modkey }, "x", function ()
+            os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '#F4800d' -sb '#f4800d' -sf '#1e1e1e'",
+            beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
+        end,
+        {description = "show dmenu", group = "launcher"}),
   -- Standard program
   awful.key(
     {modkey},
