@@ -290,17 +290,17 @@ local globalKeys =
     {},
     'XF86MonBrightnessUp',
     function()
-      awful.spawn('xbacklight -inc 10')
+      awful.spawn.with_shell('~/.config/awesome/brightness.sh +2')
     end,
-    {description = '+10%', group = 'hotkeys'}
+    {description = '+2%', group = 'hotkeys'}
   ),
   awful.key(
     {},
     'XF86MonBrightnessDown',
     function()
-      awful.spawn('xbacklight -dec 10')
+      awful.spawn.with_shell('~/.config/awesome/brightness.sh -2')
     end,
-    {description = '-10%', group = 'hotkeys'}
+    {description = '-2%', group = 'hotkeys'}
   ),
   -- ALSA volume control
   awful.key(
