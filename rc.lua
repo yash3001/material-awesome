@@ -89,3 +89,4 @@ awful.spawn.with_shell('xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput T
 client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = vi_focus})
 end)
+
